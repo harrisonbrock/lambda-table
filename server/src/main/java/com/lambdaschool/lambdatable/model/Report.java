@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
@@ -17,7 +18,7 @@ public class Report {
     private Long Id;
 
     @Column(name = "describeweek")
-    @NotBlank
+    @NotEmpty
     private String describeWeek;
 
     @Column(name = "whatwentwell")
@@ -26,7 +27,7 @@ public class Report {
     @Column(name = "whatcouldhavewentbetter")
     private String whatCouldHaveWentBetter;
 
-    @NotBlank
+    @NotEmpty
     @Column(name = "whatdidyouworkonthisweek")
     private String whatDidYouWorkOnThisWeek;
     @Column(name = "urlSubmission")
