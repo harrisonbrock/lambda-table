@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.services;
 
+import com.lambdaschool.lambdatable.exception.ResourceNotFoundException;
 import com.lambdaschool.lambdatable.model.User;
 import com.lambdaschool.lambdatable.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,18 @@ public class UserService {
             return user.get();
         }
         else {
-            return null;
+            throw new ResourceNotFoundException("GitHub Name '" + gitHubName + "' not found");
+        }
+    }
+
+    public User findUserById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            return user.get();
+        }
+        else {
+            throw new ResourceNotFoundException("User Id '" + id + "' not found");
         }
     }
 }
