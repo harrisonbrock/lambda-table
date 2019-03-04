@@ -35,4 +35,6 @@ public class Report {
     private String urlSubmission;
 
     // TODO: Add User Many-Reports-to-One-User
+    @ManyToOne()
+    private User user;
 }

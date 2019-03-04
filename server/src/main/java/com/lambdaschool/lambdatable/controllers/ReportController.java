@@ -5,9 +5,7 @@ import com.lambdaschool.lambdatable.services.ReportService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,7 +19,8 @@ public class ReportController {
         this.reportService = reportService;
     }
 
-    public ResponseEntity<?> createReport(@Valid @RequestBody Report report) {
+    @PostMapping("/users/{userId}")
+    public ResponseEntity<?> createReport(@PathVariable Long userId, @Valid @RequestBody Report report) {
 
         // TODO: add error handle for incorrect data
 
