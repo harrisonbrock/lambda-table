@@ -33,4 +33,6 @@ public class Report {
     @Column(name = "urlSubmission")
     @URL
     private String urlSubmission;
+
+    // TODO: Add User Many-Reports-to-One-User
 }
