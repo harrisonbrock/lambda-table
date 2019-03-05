@@ -19,7 +19,7 @@ public class ReportService {
 
     public Report createReport(Report report, String gitHuhName) {
 
-        return userRepository.findByGitHubUserName(gitHuhName)
+        return userRepository.findByGitHubName(gitHuhName)
                 .map(user -> {
                     report.setUser(user);
                     return reportRepository.save(report);
