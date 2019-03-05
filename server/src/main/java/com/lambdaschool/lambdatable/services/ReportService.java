@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.services;
 
+import com.lambdaschool.lambdatable.exception.ResourceNotFoundException;
 import com.lambdaschool.lambdatable.model.Report;
 import com.lambdaschool.lambdatable.repositories.ReportRepository;
 import com.lambdaschool.lambdatable.repositories.UserRepository;
@@ -16,8 +17,13 @@ public class ReportService {
         this.userRepository = userRepository;
     }
 
-    public Report createReport(Report report) {
+    public Report createReport(Report report, String gitHuhName) {
 
-        return  reportRepository.save(report);
+        return userRepository.findByGitHubUserName(gitHuhName)
+                .map(user -> {
+                    report.setUser(user);
+                    return reportRepository.save(report);
+                })
+                .orElseThrow(() -> new ResourceNotFoundException("GitHub Username '" + gitHuhName + "' no found" ));
     }
 }
