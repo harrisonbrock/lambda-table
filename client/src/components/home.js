@@ -9,6 +9,7 @@ class Home extends Component {
                     <header className="table-header">
                         <h1>Home</h1>
                         <Link to="/eow">End of Week Form</Link>
+                        <Link to="/login">Login</Link>
                     </header>
                 </div>
             </div>
