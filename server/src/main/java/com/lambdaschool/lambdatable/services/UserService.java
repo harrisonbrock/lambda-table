@@ -56,4 +56,11 @@ public class UserService {
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("GitHub Name '" + gitHubName + "' not found"));
     }
+
+    public User deleteUserByGitHubName(String gitHubName) {
+        Optional<User> user = userRepository.findByGitHubUserName(gitHubName);
+        if(user.isPresent()) {
+
+        }
+    }
 }
