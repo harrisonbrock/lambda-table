@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 import "./login.css";
 
 class Login extends React.Component {
@@ -13,7 +13,7 @@ class Login extends React.Component {
 		return (
 			<div className="wrapper">
 				<h1>Log In</h1>
-				<form onSubmit={this.submitHandler}>
+				<form onSubmit={this.loginHandler}>
 					<div>
 						<label htmlFor="username" />
 						<input
@@ -38,6 +38,7 @@ class Login extends React.Component {
 					</div>
 					<button className="login-button">Log in</button>
 				</form>
+				<button className="register-button" onClick={this.registerHandler}>Register</button>
 				{this.state.invalidCredentials ? (
 					<h3>Invalid Credentials</h3>
 				) : null}
@@ -46,12 +47,28 @@ class Login extends React.Component {
 	}
 
 	inputChangeHandler = event => {
-		const { name, value } = event.target;
-
-		this.setState({ [name]: value });
+		this.setState({ [event.target.name]: event.target.value });
 	};
 
-	submitHandler = event => {
+	loginHandler = event => {
+		event.preventDefault();
+
+		// axios
+		//   .post("https://cruise-backend.herokuapp.com/api/users/login", this.state)
+		//   .then(response => {
+		//     if (response.data.token) {
+		//       localStorage.setItem("token", response.data.token);
+		//       this.props.history.push("/notes");
+		//     }
+		//     this.setState({ invalidCredentials: true, password: "" });
+		//   })
+		//   .catch(err => {
+		//     localStorage.removeItem("token");
+		//     this.setState({ invalidCredentials: true, password: "" });
+		//   });
+	};
+
+	registerHandler = event => {
 		event.preventDefault();
 
 		// axios
