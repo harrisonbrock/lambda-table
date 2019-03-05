@@ -13,18 +13,6 @@ import javax.validation.Valid;
 @RequestMapping(value = "/reports", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ReportController {
 
-    private final ReportService reportService;
+//    private final ReportService reportService;
 
-    public ReportController(ReportService reportService) {
-        this.reportService = reportService;
-    }
-
-    @PostMapping("/users/{userId}")
-    public ResponseEntity<?> createReport(@PathVariable Long userId, @Valid @RequestBody Report report) {
-
-        // TODO: add error handle for incorrect data
-
-        Report newReport = reportService.createReport(report);
-        return new ResponseEntity<>(newReport, HttpStatus.CREATED);
-    }
 }

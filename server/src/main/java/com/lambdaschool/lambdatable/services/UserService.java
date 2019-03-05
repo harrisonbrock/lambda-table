@@ -59,8 +59,12 @@ public class UserService {
 
     public User deleteUserByGitHubName(String gitHubName) {
         Optional<User> user = userRepository.findByGitHubUserName(gitHubName);
-        if(user.isPresent()) {
 
+        if (user.isPresent()) {
+            userRepository.delete(user.get());
+            return user.get();
+        } else {
+            throw new ResourceNotFoundException("Github Name '" + gitHubName + "' not found");
         }
     }
 }
