@@ -50,4 +50,16 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @PutMapping("/githubname/{gitHubName}")
+    public ResponseEntity<?> updateUserGitHubName(
+            @PathVariable String gitHubName,
+            @Valid @RequestBody User userRequest,
+            BindingResult result) {
+        ResponseEntity<?> errorMap = errorService.mapValidationService(result);
+        if(errorMap != null) return errorMap;
+
+        User user = userService.updateUserByGitHubName(gitHubName, userRequest);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }

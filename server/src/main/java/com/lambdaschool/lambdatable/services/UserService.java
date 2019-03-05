@@ -46,4 +46,14 @@ public class UserService {
             throw new ResourceNotFoundException("User Id '" + id + "' not found");
         }
     }
+
+    public User updateUserByGitHubName(String gitHubName, User userRequest) {
+        return userRepository.findByGitHubUserName(gitHubName)
+                .map(user -> {
+                    user.setName(userRequest.getName());
+                    user.setGitHubUserName(userRequest.getGitHubUserName());
+                    return userRepository.save(user);
+                })
+                .orElseThrow(() -> new ResourceNotFoundException("GitHub Name '" + gitHubName + "' not found"));
+    }
 }
