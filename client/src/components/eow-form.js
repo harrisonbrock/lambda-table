@@ -24,21 +24,21 @@ class Eow extends Component {
                     </header>
                     <div>
                         <h3>Describe this week in 3 words</h3>
-                        <textarea value={this.state.threeWords} name="threeWords" onChange={this.onInputChange} className="textbox1" />
+                        <textarea value={this.state.threeWords} name="threeWords" onChange={this.onInputChange} className="textbox" />
                     </div>
                     <div>
                         <h3>What went well this week?</h3>
-                        <textarea value={this.state.wentWell} name="wentWell" onChange={this.onInputChange} className="textbox2" />
+                        <textarea value={this.state.wentWell} name="wentWell" onChange={this.onInputChange} className="textbox" />
                     </div>
                     <div>
                         <h3>What could have gone better?</h3>
-                        <textarea value={this.state.goneBetter} name="goneBetter" onChange={this.onInputChange} className="textbox3" />
+                        <textarea value={this.state.goneBetter} name="goneBetter" onChange={this.onInputChange} className="textbox" />
                     </div>
                     <div>
                         <h3>What did you work on this week?</h3>
-                        <textarea value={this.state.workedOn} name="workedOn" onChange={this.onInputChange} className="textbox4" />
+                        <textarea value={this.state.workedOn} name="workedOn" onChange={this.onInputChange} className="textbox" />
                     </div>
-                    <button>Submit</button>
+                    <button className="submit-btn">Submit</button>
                 </div>
             </div>
         )
