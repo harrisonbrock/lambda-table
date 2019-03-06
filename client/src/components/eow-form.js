@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 import './Eow.css';
 
 class Eow extends Component {
-    state = {
-        threeWords: "",
-        wentWell: "",
-        goneBetter: "",
-        workedOn: ""
-    }
+	state = {
+		threeWords: "",
+		wentWell: "",
+		goneBetter: "",
+		workedOn: ""
+	}
 
-    onInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-    };
+	onInputChange = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
 
     render() {
         return (
