@@ -3,10 +3,10 @@
 -------------------*/
 
 .logo {
-    background: url("../assets/CloudChart.png") no-repeat top left;
+    background: url("../assets/CloudChart.png") no-repeat top center;
     background-size: contain;
-    height: 96px;
+    height: 98px;
     width: 260px;
     padding: 5px;
-    /* margin: auto; */
+    margin: auto;
   }
