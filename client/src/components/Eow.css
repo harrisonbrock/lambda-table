@@ -10,3 +10,40 @@
     padding: 5px;
     margin: auto;
   }
+
+
+/*-------------------
+  Input Boxes
+-------------------*/  
+
+.threeWords {
+    border: 1px solid rgba(50, 111, 224, 0.479);
+    width: 275px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.wentWell {
+    border: 1px solid rgba(50, 111, 224, 0.479);
+    width: 275px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.goneBetter {
+    border: 1px solid rgba(50, 111, 224, 0.479);
+    width: 275px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.workedOn {
+    border: 1px solid rgba(50, 111, 224, 0.479);
+    width: 275px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
