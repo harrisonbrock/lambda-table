@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public User findUserByGitHubName(String gitHubName) {
-        Optional<User> user = userRepository.findByGitHubUserName(gitHubName.toLowerCase());
+        Optional<User> user = userRepository.findByGitHubName(gitHubName.toLowerCase());
 
         if (user.isPresent()) {
             return user.get();
@@ -48,19 +48,23 @@ public class UserService {
     }
 
     public User updateUserByGitHubName(String gitHubName, User userRequest) {
-        return userRepository.findByGitHubUserName(gitHubName)
+        return userRepository.findByGitHubName(gitHubName)
                 .map(user -> {
                     user.setName(userRequest.getName());
-                    user.setGitHubUserName(userRequest.getGitHubUserName());
+                    user.setGitHubName(userRequest.getGitHubName());
                     return userRepository.save(user);
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("GitHub Name '" + gitHubName + "' not found"));
     }
 
     public User deleteUserByGitHubName(String gitHubName) {
-        Optional<User> user = userRepository.findByGitHubUserName(gitHubName);
-        if(user.isPresent()) {
+        Optional<User> user = userRepository.findByGitHubName(gitHubName);
 
+        if (user.isPresent()) {
+            userRepository.delete(user.get());
+            return user.get();
+        } else {
+            throw new ResourceNotFoundException("Github Name '" + gitHubName + "' not found");
         }
     }
 }

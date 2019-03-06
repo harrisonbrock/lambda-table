@@ -62,4 +62,10 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
+    @DeleteMapping("/githubname/{gitHubName}")
+    public ResponseEntity<?> deleteUserByGitHubName(@PathVariable String gitHubName) {
+        return new ResponseEntity<>(userService.deleteUserByGitHubName(gitHubName), HttpStatus.OK);
+    }
+
+
 }
