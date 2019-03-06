@@ -16,7 +16,7 @@
   Input Boxes
 -------------------*/  
 
-.threeWords {
+.textbox1 {
     border: 1px solid rgba(50, 111, 224, 0.479);
     width: 275px;
     height: 100px;
@@ -24,7 +24,7 @@
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.wentWell {
+.textbox2 {
     border: 1px solid rgba(50, 111, 224, 0.479);
     width: 275px;
     height: 100px;
@@ -32,7 +32,7 @@
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.goneBetter {
+.textbox3 {
     border: 1px solid rgba(50, 111, 224, 0.479);
     width: 275px;
     height: 100px;
@@ -40,7 +40,7 @@
                 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.workedOn {
+.textbox4 {
     border: 1px solid rgba(50, 111, 224, 0.479);
     width: 275px;
     height: 100px;
