@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
-import './Eow.css';
-import Axios from 'axios';
+import React, { Component } from "react";
+import Axios from "axios";
+import ReportCard from "./report-card";
 
-class Eow extends Component {
+class Admin extends Component {
 	state = {
-		users: [],
 		reports: []
-	}
+	};
 
 	componentDidMount() {
-		// Axios
+		if (!localStorage.getItem("token")) this.props.history.push("/login");
+		Axios.get("http://localhost:8080/api/admin/reports", {
+			headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+		})
+			.then(response => {
+				console.log(response.data);
+				this.setState({ reports: response.data });
+			})
+			.catch(err => console.log(err));
 	}
 
 	render() {
@@ -19,16 +26,19 @@ class Eow extends Component {
 					<header className="table-header">
 						<div className="logo" />
 					</header>
-					{this.state.users.map(user => (
-						<>
-							<h3>{user.name}</h3>
-							<span>{this.state.reports.filter(report => report.user === user)}</span>
-						</>
+					{this.state.reports.map((report, index) => (
+						<ReportCard
+							onClick={this.handleCardClick}
+							key={index}
+							report={report}
+						/>
 					))}
 				</div>
 			</div>
-		)
+		);
 	}
+
+	handleCardClick = e => {};
 }
 
-export default Eow;
+export default Admin;
