@@ -6,8 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "topics")
-public class ProgramManager extends DateAudit {
+@Table(name = "projectmanager")
+public class ProjectManager extends DateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +16,10 @@ public class ProgramManager extends DateAudit {
     @NotBlank
     private String name;
 
-    public ProgramManager() {
+    public ProjectManager() {
     }
 
-    public ProgramManager(@NotBlank String name) {
+    public ProjectManager(@NotBlank String name) {
         this.name = name;
     }
 

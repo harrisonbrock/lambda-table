@@ -35,6 +35,15 @@ public class Report extends DateAudit {
     @URL
     private String urlSubmission;
 
+    @NotBlank
+    private String teacher;
+
+    @NotBlank
+    private String projectmanager;
+
+    @NotBlank
+    private String topic;
+
     // TODO: Add User Many-Reports-to-One-User
     @ManyToOne()
     private User user;
