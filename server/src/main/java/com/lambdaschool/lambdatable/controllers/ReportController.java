@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/reports", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/reports", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ReportController {
 
     private final ReportService reportService;
@@ -35,5 +35,6 @@ public class ReportController {
         Report newReport = reportService.createReport(report, gitHubUserName);
         return new ResponseEntity<>(newReport, HttpStatus.CREATED);
     }
+
 
 }
