@@ -1,15 +1,14 @@
 # Cloud Chart
 
-Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but 
-applied to a spreadsheet. 
+Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but applied to a spreadsheet. 
 
 ![Logo](2019-03-07-08-46-19.png)
 
-## Getting Started
+<!-- ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-<!-- ### Prerequisites
+### Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -65,6 +64,10 @@ Add additional notes about how to deploy this on a live system -->
 * [Spring](https://spring.io/projects/spring-framework) - The web framework used for back end
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for browser and node.js
+* [h2](http://www.h2database.com/html/main.html) - Database for development purposes
+* [MySQL](https://www.mysql.com/) - Database for production purposes
+* [Spring Security Core](https://mvnrepository.com/artifact/org.springframework.security/spring-security-core) - Spring Security & Authentication
+* [Spring Security Web](https://mvnrepository.com/artifact/org.springframework.security/spring-security-web) - Spring Security
 
 
 ## Authors
