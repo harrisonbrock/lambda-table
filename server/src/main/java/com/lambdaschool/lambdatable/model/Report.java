@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.model;
 
+import com.lambdaschool.lambdatable.model.audit.DateAudit;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
 
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Data
 @Table (name = "reports")
-public class Report {
+public class Report extends DateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

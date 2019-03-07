@@ -1,0 +1,29 @@
+.wrapper {
+  margin-top: 80px;
+  align-items: center;
+}
+
+.text-entry {
+  height: 30px;
+  width: 200px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+button {
+  font-size: 1rem;
+}
+
+.login-button {
+  border: 1px solid #ababab;
+  margin-bottom: 20px;
+  background: #25b1b5;
+  height: 40px;
+  width: 180px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
