@@ -6,8 +6,10 @@
   text-align: center;
   padding: 10px;
   background-color: lightgray;
-  background-image: url("https://i.imgur.com/qVwaQE3.png");
+  /* background-image: url("https://i.imgur.com/qVwaQE3.png"); */
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/itCjTBE/videoblocks-grey-and-white-tech-geometric-motion-background-video-seamless-looping-animation-ultra-hd-4k-3840x2160_rlto8zupg_thumbnail-full01.png");
   background-size: cover;
+  background-repeat: repeat;
 }
 
 
@@ -25,8 +27,10 @@
 
 /* .table-header {
   background-color: white;
+  max-width: 50vmin;
   height: 20vmin;
-  padding: 10px;
+  margin: auto;
+  padding: 5px;
 } */
 
 .App-link {
