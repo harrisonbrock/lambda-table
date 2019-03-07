@@ -6,6 +6,8 @@ import com.lambdaschool.lambdatable.repositories.ReportRepository;
 import com.lambdaschool.lambdatable.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReportService {
 
@@ -26,4 +28,9 @@ public class ReportService {
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("GitHub Username '" + gitHuhName + "' no found" ));
     }
+
+    public List<Report> getAllReports() {
+        return reportRepository.findAll();
+    }
+
 }
