@@ -3,7 +3,7 @@
 Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but 
 applied to a spreadsheet. 
 
-![Logo](2019-03-06-16-02-08.png)
+![Logo](2019-03-07-08-46-19.png)
 
 ## Getting Started
 
@@ -73,7 +73,7 @@ Add additional notes about how to deploy this on a live system -->
 * **Harrison Brock** - *Developer* - [LinkedIn](https://www.linkedin.com/in/harrisonbrock/)
 * **Kaitlyn Flynn** - *Developer* - [LinkedIn](https://www.linkedin.com/in/kaitlynflynn/)
 
-![DevTeam](2019-03-06-16-05-30.png)
+![DevTeam](2019-03-07-08-45-13.png)
 
 
 ## License
