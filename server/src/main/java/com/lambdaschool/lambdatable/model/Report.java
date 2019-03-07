@@ -41,8 +41,6 @@ public class Report extends DateAudit {
     @NotBlank
     private String projectmanager;
 
-    @NotBlank
-    private String topic;
 
     // TODO: Add User Many-Reports-to-One-User
     @ManyToOne()

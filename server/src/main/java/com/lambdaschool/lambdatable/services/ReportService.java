@@ -2,6 +2,7 @@ package com.lambdaschool.lambdatable.services;
 
 import com.lambdaschool.lambdatable.exception.ResourceNotFoundException;
 import com.lambdaschool.lambdatable.model.Report;
+import com.lambdaschool.lambdatable.model.User;
 import com.lambdaschool.lambdatable.repositories.ReportRepository;
 import com.lambdaschool.lambdatable.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -19,18 +20,23 @@ public class ReportService {
         this.userRepository = userRepository;
     }
 
-    public Report createReport(Report report, String gitHuhName) {
+    public Report createReport(Report report, String userName) {
 
-        return userRepository.findByGitHubName(gitHuhName)
+        return userRepository.findByUsernameOrEmail(userName, "")
                 .map(user -> {
                     report.setUser(user);
                     return reportRepository.save(report);
                 })
-                .orElseThrow(() -> new ResourceNotFoundException("GitHub Username '" + gitHuhName + "' no found" ));
+                .orElseThrow(() -> new ResourceNotFoundException("Username '" + userName + "' no found" ));
     }
 
     public List<Report> getAllReports() {
         return reportRepository.findAll();
+    }
+
+    public List<Report> getAllReportsByUserName(User user) {
+
+        return reportRepository.getByUser(user);
     }
 
 }

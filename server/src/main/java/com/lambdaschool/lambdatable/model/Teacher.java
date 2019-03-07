@@ -6,6 +6,8 @@ import com.lambdaschool.lambdatable.model.audit.DateAudit;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "teachers")
