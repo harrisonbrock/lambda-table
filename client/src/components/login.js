@@ -8,6 +8,8 @@ class Login extends React.Component {
 		username: "",
 		password: "",
 		name: "",
+		github: "",
+		email: "",
 		invalidCredentials: false,
 		register: false
 	};
@@ -23,7 +25,7 @@ class Login extends React.Component {
 						<label htmlFor="username" />
 						<input
 							name="username"
-							placeholder="username or email"
+							placeholder="username"
 							value={this.state.username}
 							onChange={this.inputChangeHandler}
 							type="text"
@@ -35,9 +37,31 @@ class Login extends React.Component {
 						{this.state.register ? <input
 							name="name"
 							placeholder="name"
-							value={this.state.password}
+							value={this.state.name}
 							onChange={this.inputChangeHandler}
 							type="text"
+							className="text-entry"
+						/> : null}
+					</div>
+					<div>
+						<label htmlFor="github" />
+						{this.state.register ? <input
+							name="github"
+							placeholder="github"
+							value={this.state.github}
+							onChange={this.inputChangeHandler}
+							type="text"
+							className="text-entry"
+						/> : null}
+					</div>
+					<div>
+						<label htmlFor="email" />
+						{this.state.register ? <input
+							name="email"
+							placeholder="email"
+							value={this.state.email}
+							onChange={this.inputChangeHandler}
+							type="email"
 							className="text-entry"
 						/> : null}
 					</div>
@@ -74,14 +98,19 @@ class Login extends React.Component {
 
 		if (!this.state.register) {
 			Axios
-				.post("localhost:8080/api/auth/signin", this.state)
+				.post("http://localhost:8080/api/auth/signin",
+					{ userNameOrEmail: this.state.username, password: this.state.password })
 				.then(response => {
-					// if (response.data.accessToken) {
-					//   localStorage.setItem("token", response.data.accessToken);
-					//   this.props.history.push("/notes");
-					// }
-					console.log(response);
-					this.setState({ invalidCredentials: true, password: "" });
+					if (response.data.accessToken) {
+						localStorage.setItem("token", response.data.accessToken);
+						// this.props.history.push("/eow");
+						Axios.get("http://localhost:8080/api/admin/reports", {
+							headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+						}).then(res => {
+							res.data === [] ? this.props.history.push("/admin") : this.props.history.push("/user");
+							console.log(res)
+						}).catch(err => console.log(err));
+					}
 				})
 				.catch(err => {
 					console.log(err);
@@ -89,19 +118,26 @@ class Login extends React.Component {
 					this.setState({ invalidCredentials: true, password: "" });
 				});
 		} else {
-			// axios
-			//   .post("https://cruise-backend.herokuapp.com/api/users/login", this.state)
-			//   .then(response => {
-			//     if (response.data.token) {
-			//       localStorage.setItem("token", response.data.token);
-			//       this.props.history.push("/notes");
-			//     }
-			//     this.setState({ invalidCredentials: true, password: "" });
-			//   })
-			//   .catch(err => {
-			//     localStorage.removeItem("token");
-			//     this.setState({ invalidCredentials: true, password: "" });
-			//   });
+			Axios
+				.post("http://localhost:8080/api/auth/signup",
+					{
+						userName: this.state.username,
+						password: this.state.password,
+						name: this.state.name,
+						gitHubName: this.state.github,
+						email: this.state.email
+					})
+				.then(response => {
+					if (response.data.accessToken) {
+						localStorage.setItem("token", response.data.accessToken);
+						this.props.history.push("/eow");
+					}
+				})
+				.catch(err => {
+					console.log(err);
+					localStorage.removeItem("token");
+					this.setState({ invalidCredentials: true, password: "" });
+				});
 		}
 	};
 }
