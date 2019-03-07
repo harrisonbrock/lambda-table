@@ -3,11 +3,13 @@
 Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but 
 applied to a spreadsheet. 
 
+![Logo](2019-03-06-16-02-08.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+<!-- ### Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -55,13 +57,14 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system -->
 
 ## Built With
 
 * [React](https://reactjs.org/) - The web framework used for front end
 * [Spring](https://spring.io/projects/spring-framework) - The web framework used for back end
 * [Maven](https://maven.apache.org/) - Dependency Management
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for browser and node.js
 
 
 ## Authors
@@ -70,6 +73,8 @@ Add additional notes about how to deploy this on a live system
 * **Harrison Brock** - *Developer* - [LinkedIn](https://www.linkedin.com/in/harrisonbrock/)
 * **Kaitlyn Flynn** - *Developer* - [LinkedIn](https://www.linkedin.com/in/kaitlynflynn/)
 
+![DevTeam](2019-03-06-16-05-30.png)
+
 
 ## License
 
@@ -77,6 +82,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Inspired by Airtable to create our own version
+* We hope to continue building and expanding features

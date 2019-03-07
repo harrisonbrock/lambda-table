@@ -3,10 +3,54 @@
 -------------------*/
 
 .logo {
-    background: url("../assets/CloudChart.png") no-repeat top left;
+    background: url("../assets/CloudChart.png") no-repeat top center;
     background-size: contain;
-    height: 96px;
+    height: 98px;
     width: 260px;
     padding: 5px;
-    /* margin: auto; */
+    margin: auto;
   }
+
+
+/*-------------------
+  Input Boxes
+-------------------*/  
+
+.textbox {
+    border: 1px solid rgba(50, 111, 224, 0.479);
+    width: 275px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*-------------------
+  Submit Button
+-------------------*/ 
+
+.submit-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #3c8eec;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #3c8eec;
+}
+
+.submit-btn:active {
+  background-color: #3c8eec;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

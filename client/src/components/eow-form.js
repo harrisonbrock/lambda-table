@@ -10,9 +10,9 @@ class Eow extends Component {
 		projectURL: ""
 	}
 
-	onInputChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
-	};
+   onInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
 
 	componentDidMount() {
 		if (!localStorage.getItem("token")) this.props.history.push("/login");
