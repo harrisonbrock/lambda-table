@@ -17,14 +17,16 @@ class Login extends React.Component {
 	render() {
 		return (
 			<div className="wrapper">
-				<h1>Log In</h1>
-				<span>Register</span>
+				<div className="logo" />
+				<h1 className="login">Log In</h1>
+				<p className="noAcct">Don't have an acct?</p>
 				<input
 					name="register"
 					type="checkbox"
 					checked={this.state.register}
 					onChange={this.handleCheck}
 				/>
+				<span className="regHere">Register Here</span>
 				<form onSubmit={this.loginHandler}>
 					<div>
 						<label htmlFor="username" />

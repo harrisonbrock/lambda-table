@@ -1,21 +1,61 @@
-.wrapper {
-  margin-top: 80px;
-  align-items: center;
+/*-------------------
+  Cloud Chart Logo
+-------------------*/
+.logo {
+  background: url("../assets/CloudChart.png") no-repeat top center;
+  background-size: contain;
+  height: 98px;
+  width: 260px;
+  /* padding: 5px;
+  margin: auto; */
 }
 
+.wrapper {
+  margin-top: 20px;
+  align-items: center;
+  color: #3c8eec;
+  margin-bottom: 100px;
+}
+
+.login {
+  text-shadow: 2px 2px 4px #0f0f0f86;
+}
+
+.noAcct {
+  color: slategrey;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/*-------------------
+  RegHere Checkbox
+-------------------*/
+.regHere {
+  font-size: 14px;
+  padding: 5px;
+}
+
+/*-------------------
+  Entry Fields
+  Username/PW
+-------------------*/
 .text-entry {
   height: 30px;
   width: 200px;
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
   font-size: 1rem;
+  margin-top: 10px;
 }
 
+/*-------------------
+  Log In Button
+-------------------*/
 button {
   font-size: 1rem;
 }
 
 .login-button {
-  border: 1px solid #ababab;
+  /* border: 1px solid #ababab;
   margin-bottom: 20px;
   background: #25b1b5;
   height: 40px;
@@ -25,5 +65,44 @@ button {
   color: white;
   cursor: pointer;
   user-select: none;
+  text-decoration: none; */
+
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
   text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #3c8eec;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.login-button:hover {
+background-color: #3c8eec;
+}
+
+.submit-btn:active {
+  background-color: #3c8eec;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/*-------------------
+  HOME PAGE
+  Puff Graphic
+-------------------*/
+
+.puff {
+  background: url("../assets/puffgreeting.png") no-repeat bottom right;
+  background-size: contain;
+  height: 150px;
+  width: 875px;
+  padding: 5px;
+  margin: auto;
 }

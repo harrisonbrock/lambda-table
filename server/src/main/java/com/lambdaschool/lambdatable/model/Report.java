@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lambdaschool.lambdatable.model.audit.DateAudit;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
+@JsonIgnoreProperties("user")
 @Table (name = "reports")
 public class Report extends DateAudit {
 
