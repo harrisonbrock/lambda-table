@@ -62,16 +62,26 @@ public class DataLoader implements CommandLineRunner {
 
         User cruise = new User();
         cruise.setUsername("Cruise");
-        cruise.setGitHubName("duck");
-        cruise.setEmail("cruise@react.engineer");
-        cruise.setName("Bob");
+        cruise.setGitHubName("cruisebrantley");
+        cruise.setEmail("cruise.brantley@gmail.com");
+        cruise.setName("Cruise");
         cruise.setPassword(passwordEncoder.encode("Password"));
 
-        Role adminRole = roleRepository.findByName(RoleName.ROLE_USER).orElseThrow(null);
-        cruise.setRoles(Collections.singleton(adminRole));
+        cruise.setRoles(Collections.singleton(userRole));
+
+        User admin = new User();
+        admin.setUsername("Admin");
+        admin.setGitHubName("admin");
+        admin.setEmail("admin@administrator.com");
+        admin.setName("Admin");
+        admin.setPassword(passwordEncoder.encode("Password"));
+
+        Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN).orElseThrow(null);
+        admin.setRoles(Collections.singleton(adminRole));
 
         userRepository.save(harry);
         userRepository.save(cruise);
+        userRepository.save(admin);
 
         Topic CS = new Topic();
         Topic SQL = new Topic();
@@ -130,8 +140,20 @@ public class DataLoader implements CommandLineRunner {
         report2.setProjectmanager(PM2.getName());
         report2.setTeacher(T2.getName());
 
+        Report report3 = new Report();
+        report3.setUser(cruise);
+        report3.setDescribeWeek("Meh");
+        report3.setUrlSubmission("https://github.com/project");
+        report3.setWhatCouldHaveWentBetter("All the things");
+        report3.setWhatWentWellThisWeek("project complete");
+        report3.setWhatDidYouWorkOnThisWeek(SQL.getName());
+
+        report3.setProjectmanager(PM2.getName());
+        report3.setTeacher(T2.getName());
+
         reportRepository.save(report);
         reportRepository.save(report2);
+        reportRepository.save(report3);
 
 
 
