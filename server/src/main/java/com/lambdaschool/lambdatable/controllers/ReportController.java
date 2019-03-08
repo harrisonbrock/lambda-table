@@ -49,7 +49,7 @@ public class ReportController {
     public ResponseEntity<?> getReport(@CurrentUser UserPrincipal currentUser) {
         User user = userRepository.findById(currentUser.getId()).get();
         System.out.println(user.getId() + " name" + user.getName());
-        List<Report> reports = reportService.getAllReportsByUserName(user);
+        List<Report> reports = reportService.getAllReportsByUser(user);
         return new ResponseEntity<>(reports, HttpStatus.OK);
     }
 

@@ -1,10 +1,13 @@
 package com.lambdaschool.lambdatable.controllers;
 
+import com.lambdaschool.lambdatable.security.CurrentUser;
+import com.lambdaschool.lambdatable.security.UserPrincipal;
 import com.lambdaschool.lambdatable.services.MapValidationErrorService;
 import com.lambdaschool.lambdatable.services.ReportService;
 import com.lambdaschool.lambdatable.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +31,9 @@ public class AdminController {
     }
 
     @GetMapping("/reports")
-    public ResponseEntity<?> getAllReports() {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> getAllReports(@CurrentUser UserPrincipal currentUser) {
+
         return new ResponseEntity<>(reportService.getAllReports(), HttpStatus.OK);
     }
 

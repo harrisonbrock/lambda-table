@@ -34,7 +34,7 @@ public class ReportService {
         return reportRepository.findAll();
     }
 
-    public List<Report> getAllReportsByUserName(User user) {
+    public List<Report> getAllReportsByUser(User user) {
 
         return reportRepository.getByUser(user);
     }
