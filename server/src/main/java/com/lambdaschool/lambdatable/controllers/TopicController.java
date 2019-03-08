@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(name = "/api/topics")
+@RequestMapping("/api/topics")
 public class TopicController {
 
     private final TopicRepository topicRepository;
