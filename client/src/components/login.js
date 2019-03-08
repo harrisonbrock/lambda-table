@@ -113,6 +113,7 @@ class Login extends React.Component {
 				password: this.state.password
 			})
 				.then(response => {
+					console.log("login worked");
 					if (response.data.accessToken) {
 						localStorage.setItem("token", response.data.accessToken);
 						// this.props.history.push("/eow");
@@ -122,12 +123,13 @@ class Login extends React.Component {
 							}
 						})
 							.then(res => {
-								res.data === []
-									? this.props.history.push("/admin")
-									: this.props.history.push("/user");
+								this.props.history.push("/admin");
 								console.log(res);
 							})
-							.catch(err => console.log(err));
+							.catch(err => {
+								this.props.history.push("/user");
+								console.log(err);
+							});
 					}
 				})
 				.catch(err => {
