@@ -29,19 +29,13 @@ class Admin extends Component {
 					</header>
 					{this.state.reports.map((report, index) => (
 						<Link to={{ pathname: "/eow", state: { report } }}>
-							<ReportCard
-								onClick={this.handleCardClick}
-								key={index}
-								report={report}
-							/>
+							<ReportCard key={index} report={report} />
 						</Link>
 					))}
 				</div>
 			</div>
 		);
 	}
-
-	handleCardClick = e => {};
 }
 
 export default Admin;
