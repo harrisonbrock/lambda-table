@@ -1,4 +1,35 @@
+/*-------------------
+  Cards
+-------------------*/ 
 .card-class {
 	max-width: 200px;
-	background: white;
+	background: #3c8eec42;
+	border: 1px dotted slategray;
+	margin-top: 10px;
+	padding: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cardContainer {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 5px;
+}
+/*-------------------
+  Text inside Cards
+-------------------*/ 
+.name {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.createdAt {
+	font-size: 12px;
+}
+
+.timestamp {
+	font-size: 12px;
+	margin-top: -10px;
 }
