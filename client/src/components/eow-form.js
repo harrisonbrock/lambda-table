@@ -95,21 +95,50 @@ class Eow extends Component {
 	onSubmit = event => {
 		event.preventDefault();
 
-		const data = {
-			describeWeek: this.state.threeWords,
-			whatDidYouWorkOnThisWeek: this.state.workedOn,
-			whatWentWellThisWeek: this.state.wentWell,
-			whatCouldHaveWentBetter: this.state.goneBetter,
-			urlSubmission: this.state.projectURL,
-			teacher: "Beej",
-			projectmanager: "Bonn"
-		};
+		let data = {};
+
+		if (this.props.location.state !== undefined) {
+			data = {
+				...this.props.location.state.report,
+				describeWeek: this.state.threeWords,
+				whatDidYouWorkOnThisWeek: this.state.workedOn,
+				whatWentWellThisWeek: this.state.wentWell,
+				whatCouldHaveWentBetter: this.state.goneBetter,
+				urlSubmission: this.state.projectURL
+			};
+		} else {
+			data = {
+				describeWeek: this.state.threeWords,
+				whatDidYouWorkOnThisWeek: this.state.workedOn,
+				whatWentWellThisWeek: this.state.wentWell,
+				whatCouldHaveWentBetter: this.state.goneBetter,
+				urlSubmission: this.state.projectURL,
+				teacher: "Beej",
+				projectmanager: "Bonn"
+			};
+		}
 
 		if (this.state.importedState) {
 			console.log("Attempting to update report for some reason?");
-			//update path
+			//Update path
+			Axios.put(
+				"http://localhost:8080/api/reports/id/" +
+					this.props.location.state.report.id,
+				data,
+				{
+					headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+				}
+			)
+				.then(response => {
+					console.log(response);
+					this.props.history.push("/user");
+				})
+				.catch(err => {
+					console.log(err);
+				});
 		} else {
 			console.log("Creating new report");
+			//Create path
 			Axios.post("http://localhost:8080/api/reports", data, {
 				headers: { Authorization: "Bearer " + localStorage.getItem("token") }
 			})
