@@ -1,6 +1,6 @@
 package com.lambdaschool.lambdatable.controllers;
 
-import com.lambdaschool.lambdatable.repositories.TeacherRopistory;
+import com.lambdaschool.lambdatable.repositories.TeacherRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/teachers")
 public class TeacherController {
 
-    private final TeacherRopistory teacherRopistory;
+    private final TeacherRepository teacherRepository;
 
-    public TeacherController(TeacherRopistory teacherRopistory) {
-        this.teacherRopistory = teacherRopistory;
+    public TeacherController(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
     }
 
     @GetMapping
     public ResponseEntity<?> getAllTeachers() {
-        return new ResponseEntity<>(teacherRopistory.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
     }
 }

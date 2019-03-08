@@ -17,16 +17,16 @@ public class DataLoader implements CommandLineRunner {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final TopicRepository topicRepository;
-    private final TeacherRopistory teacherRopistory;
+    private final TeacherRepository teacherRepository;
     private final ProjectManagerRepository projectManagerRepository;
     private final ReportRepository reportRepository;
 
-    public DataLoader(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, TopicRepository topicRepository, TeacherRopistory teacherRopistory, ProjectManagerRepository projectManagerRepository, ReportRepository reportRepository) {
+    public DataLoader(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder, TopicRepository topicRepository, TeacherRepository teacherRepository, ProjectManagerRepository projectManagerRepository, ReportRepository reportRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.topicRepository = topicRepository;
-        this.teacherRopistory = teacherRopistory;
+        this.teacherRepository = teacherRepository;
         this.projectManagerRepository = projectManagerRepository;
         this.reportRepository = reportRepository;
     }
@@ -104,9 +104,9 @@ public class DataLoader implements CommandLineRunner {
         T2.setName("John");
         T3.setName("Ryan");
 
-        teacherRopistory.save(T1);
-        teacherRopistory.save(T2);
-        teacherRopistory.save(T3);
+        teacherRepository.save(T1);
+        teacherRepository.save(T2);
+        teacherRepository.save(T3);
 
         Report report = new Report();
         report.setUser(harry);
