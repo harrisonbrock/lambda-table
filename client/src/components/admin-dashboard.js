@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import ReportCard from "./report-card";
+import { Link } from "react-router-dom";
 
 class Admin extends Component {
 	state = {
@@ -27,11 +28,13 @@ class Admin extends Component {
 						<div className="logo" />
 					</header>
 					{this.state.reports.map((report, index) => (
-						<ReportCard
-							onClick={this.handleCardClick}
-							key={index}
-							report={report}
-						/>
+						<Link to={{ pathname: "/eow", state: { report } }}>
+							<ReportCard
+								onClick={this.handleCardClick}
+								key={index}
+								report={report}
+							/>
+						</Link>
 					))}
 				</div>
 			</div>
