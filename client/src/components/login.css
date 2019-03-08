@@ -92,3 +92,17 @@ background-color: #3c8eec;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+/*-------------------
+  HOME PAGE
+  Puff Graphic
+-------------------*/
+
+.puff {
+  background: url("../assets/puffgreeting.png") no-repeat bottom right;
+  background-size: contain;
+  height: 150px;
+  width: 875px;
+  padding: 5px;
+  margin: auto;
+}
