@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import ReportCard from "./report-card";
+import { Link } from "react-router-dom";
 
 class Admin extends Component {
 	state = {
@@ -27,18 +28,21 @@ class Admin extends Component {
 						<div className="logo" />
 					</header>
 					{this.state.reports.map((report, index) => (
-						<ReportCard
-							onClick={this.handleCardClick}
-							key={index}
-							report={report}
-						/>
+						<Link key={index} to={{ pathname: "/eow", state: { report } }}>
+							<ReportCard
+								key={index}
+								report={report}
+								callback={() => this.componentDidMount()}
+							/>
+						</Link>
 					))}
 				</div>
+				{/* <Link className="submit-btn" to="/eow">
+					Create Weekly Report
+				</Link> */}
 			</div>
 		);
 	}
-
-	handleCardClick = e => {};
 }
 
 export default Admin;

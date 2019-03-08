@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import ReportCard from "./report-card";
+import { Link } from "react-router-dom";
 
 class User extends Component {
 	state = {
@@ -9,7 +10,7 @@ class User extends Component {
 
 	componentDidMount() {
 		if (!localStorage.getItem("token")) this.props.history.push("/login");
-		Axios.get("http://localhost:8080/api/admin/reports", {
+		Axios.get("http://localhost:8080/api/reports", {
 			headers: { Authorization: "Bearer " + localStorage.getItem("token") }
 		})
 			.then(response => {
@@ -26,20 +27,23 @@ class User extends Component {
 					<header className="table-header">
 						<div className="logo" />
 					</header>
-					<div className="myReportCard">My Report Cards</div>	
+					<div className="myReportCard">My Report Cards</div>
 					{this.state.reports.map((report, index) => (
-						<ReportCard
-							onClick={this.handleCardClick}
-							key={index}
-							report={report}
-						/>
+						<Link key={index} to={{ pathname: "/eow", state: { report } }}>
+							<ReportCard
+								key={index}
+								report={report}
+								callback={() => this.componentDidMount()}
+							/>
+						</Link>
 					))}
 				</div>
+				<Link className="submit-btn user-submit-btn" to="/eow">
+					Create Weekly Report
+				</Link>
 			</div>
 		);
 	}
-
-	handleCardClick = e => {};
 }
 
 export default User;
