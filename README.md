@@ -68,6 +68,7 @@ Add additional notes about how to deploy this on a live system -->
 * [MySQL](https://www.mysql.com/) - Database for production purposes
 * [Spring Security Core](https://mvnrepository.com/artifact/org.springframework.security/spring-security-core) - Spring Security & Authentication
 * [Spring Security Web](https://mvnrepository.com/artifact/org.springframework.security/spring-security-web) - Spring Security
+* [Swagger](https://swagger.io/) - Swagger Documentation
 
 
 ## Authors
@@ -87,3 +88,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Inspired by Airtable to create our own version
 * We hope to continue building and expanding features
+
+![PuffJoke](2019-03-07-20-15-25.png)
