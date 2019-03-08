@@ -13,7 +13,6 @@ class Eow extends Component {
 		admin: false
 	};
 	componentDidMount() {
-		console.log(this.props.location.state.admin);
 		if (!localStorage.getItem("token")) this.props.history.push("/login");
 		if (this.props.location.state !== undefined) {
 			this.setState({
