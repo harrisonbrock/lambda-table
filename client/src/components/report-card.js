@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./report-card.css";
 import Axios from "axios";
+import moment from "moment";
 
 class ReportCard extends Component {
 	render() {
@@ -11,11 +12,26 @@ class ReportCard extends Component {
 						X
 					</button>
 					<p>End of Week Form</p>
-					<p className="createdAt">Created At:</p>
-					<h3 className="timestamp">
-						{this.props.report.createdAt.slice(0, 10)}
-					</h3>
-					{/* <span className="name">By: {this.props.report.user.name}</span> */}
+					{this.props.report.createdAt !== null ? (
+						<>
+							<p className="createdAt">Created At:</p>
+							<h3 className="timestamp">
+								{moment(this.props.report.createdAt).format(
+									"MMMM Do YYYY, h:mm:ss a"
+								)}
+							</h3>
+						</>
+					) : (
+						<>
+							<p className="createdAt">Updated At:</p>
+							<h3 className="timestamp">
+								{moment(this.props.report.updatedAt).format(
+									"MMMM Do YYYY, h:mm:ss a"
+								)}
+							</h3>
+						</>
+					)}
+					<span className="name">By: {this.props.report.user.name}</span>
 				</div>
 			</div>
 		);
