@@ -48,7 +48,13 @@ public class ReportService {
         return report.get();
     }
 
-    public Report update(Report reportRequest) {
-        return reportRepository.save(reportRequest);
+    public Report update(Long id, Report reportRequest) {
+        Optional<Report> report = reportRepository.findById(id);
+
+        if (report.isEmpty()) throw new ResourceNotFoundException("Report with '" + id + "' not found");
+        else {
+            reportRequest.setId(id);
+            return reportRepository.save(reportRequest);
+        }
     }
 }
