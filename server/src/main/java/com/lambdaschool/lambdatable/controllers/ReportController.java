@@ -62,7 +62,7 @@ public class ReportController {
         return new ResponseEntity<>(reportService.deleteById(id), HttpStatus.OK);
     }
 
-    @PutMapping("id/{id}")
+    @PutMapping("/id/{id}")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public ResponseEntity<?> updateReport(@PathVariable Long id, @RequestBody Report reportRequest) {
         return new ResponseEntity<>(reportService.update(id, reportRequest), HttpStatus.OK);
