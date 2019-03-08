@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lambdaschool.lambdatable.model.audit.DateAudit;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
@@ -45,6 +46,7 @@ public class User extends DateAudit {
 
     @NotBlank
     @Size(max = 100)
+    @JsonIgnore
     private String password;
 
     @Column(name = "gitHubName")

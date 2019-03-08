@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
-@JsonIgnoreProperties("user")
+//@JsonIgnoreProperties("user")
 @Table (name = "reports")
 public class Report extends DateAudit {
 
