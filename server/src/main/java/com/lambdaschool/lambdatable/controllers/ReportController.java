@@ -31,16 +31,18 @@ public class ReportController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/users/{userName}")
+    @PostMapping()
     public ResponseEntity<?> createNewReport(
-            @PathVariable String gitHubUserName,
+            @CurrentUser UserPrincipal currentUser,
             @Valid @RequestBody Report report,
             BindingResult result) {
 
         ResponseEntity<?> errorMap = errorService.mapValidationService(result);
 
         if (errorMap != null) return errorMap;
-        Report newReport = reportService.createReport(report, gitHubUserName);
+        User user = userRepository.findById(currentUser.getId()).get();
+
+        Report newReport = reportService.createReport(report, user);
         return new ResponseEntity<>(newReport, HttpStatus.CREATED);
     }
 

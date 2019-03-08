@@ -20,14 +20,15 @@ public class ReportService {
         this.userRepository = userRepository;
     }
 
-    public Report createReport(Report report, String userName) {
+    public Report createReport(Report report, User toFind) {
 
-        return userRepository.findByUsernameOrEmail(userName, "")
+
+        return userRepository.findById(toFind.getId())
                 .map(user -> {
                     report.setUser(user);
                     return reportRepository.save(report);
                 })
-                .orElseThrow(() -> new ResourceNotFoundException("Username '" + userName + "' no found" ));
+                .orElseThrow(() -> new ResourceNotFoundException("User no found" ));
     }
 
     public List<Report> getAllReports() {
