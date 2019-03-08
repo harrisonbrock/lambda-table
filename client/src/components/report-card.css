@@ -23,19 +23,20 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 10px;
-	max-height: 150px;
+	max-height: 170px;
 	color: black;
 	text-decoration: none;
 }
 
 .delete-form {
 	position: relative;
-	left: 65px;
+	left: 80px;
 	bottom: 8px;
 	border: 1px solid black;
 	color: red;
 	padding: 0;
 	height: 17px;
+	width: 15px;
 	background: white;
 	cursor: pointer;
 }
