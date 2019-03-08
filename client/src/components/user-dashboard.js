@@ -29,7 +29,10 @@ class User extends Component {
 					</header>
 					<div className="myReportCard">My Report Cards</div>
 					{this.state.reports.map((report, index) => (
-						<Link key={index} to={{ pathname: "/eow", state: { report } }}>
+						<Link
+							key={index}
+							to={{ pathname: "/eow", state: { report, admin: false } }}
+						>
 							<ReportCard
 								key={index}
 								report={report}

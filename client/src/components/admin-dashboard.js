@@ -28,7 +28,10 @@ class Admin extends Component {
 						<div className="logo" />
 					</header>
 					{this.state.reports.map((report, index) => (
-						<Link key={index} to={{ pathname: "/eow", state: { report } }}>
+						<Link
+							key={index}
+							to={{ pathname: "/eow", state: { report, admin: true } }}
+						>
 							<ReportCard
 								key={index}
 								report={report}

@@ -9,9 +9,11 @@ class Eow extends Component {
 		goneBetter: "",
 		workedOn: "",
 		projectURL: "",
-		importedState: false
+		importedState: false,
+		admin: false
 	};
 	componentDidMount() {
+		console.log(this.props.location.state.admin);
 		if (!localStorage.getItem("token")) this.props.history.push("/login");
 		if (this.props.location.state !== undefined) {
 			this.setState({
@@ -22,7 +24,8 @@ class Eow extends Component {
 				workedOn:
 					this.props.location.state.report.whatDidYouWorkOnThisWeek || "",
 				projectURL: this.props.location.state.report.urlSubmission || "",
-				importedState: true
+				importedState: true,
+				admin: this.props.location.state.admin
 			}); //if state is sent in from component calling eow
 		}
 	}
@@ -131,7 +134,9 @@ class Eow extends Component {
 			)
 				.then(response => {
 					console.log(response);
-					this.props.history.push("/user");
+					this.state.admin
+						? this.props.history.push("/admin")
+						: this.props.history.push("/user");
 				})
 				.catch(err => {
 					console.log(err);
@@ -144,7 +149,9 @@ class Eow extends Component {
 			})
 				.then(response => {
 					console.log(response);
-					this.props.history.push("/user");
+					this.state.admin
+						? this.props.history.push("/admin")
+						: this.props.history.push("/user");
 				})
 				.catch(err => {
 					console.log(err);
