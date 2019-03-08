@@ -11,7 +11,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-// http://localhost:2019/swagger-ui.html
+// http://localhost:8080/swagger-ui.html
 
 @Configuration
 @EnableSwagger2
@@ -22,16 +22,18 @@ public class Swagger2Config
     {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.lambdaschool.ourcourses"))
+                        .basePackage("com.lambdaschool.lambda-table"))
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }
 
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("Our Courses")
-                .description("Our Courses")
-                .contact(new Contact("John Mitchell", "http://www.lambdaschool.com", "john@lambdaschool.com"))
+        return new ApiInfoBuilder().title("Cloud Chart")
+                .description("Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but applied to a spreadsheet.")
+                .contact(new Contact("Cruise Brantley", "http://www.lambdaschool.com", "cruise@lambdaschool.com"))
+                .contact(new Contact("Harrison Brock", "http://www.lambdaschool.com", "harrison@lambdaschool.com"))
+                .contact(new Contact("Kaitlyn Flynn", "http://www.lambdaschool.com", "kaitlyn@lambdaschool.com"))
                 .license("MIT")
                 .licenseUrl("https://github.com/LambdaSchool/java-crudysnacks/blob/master/LICENSE")
                 .version("1.0.0")
