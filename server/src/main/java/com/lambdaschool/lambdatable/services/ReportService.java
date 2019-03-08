@@ -8,6 +8,7 @@ import com.lambdaschool.lambdatable.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReportService {
@@ -40,4 +41,14 @@ public class ReportService {
         return reportRepository.getByUser(user);
     }
 
+    public Report deleteById(Long id) {
+        Optional<Report> report = reportRepository.findById(id);
+        if (report.isEmpty()) throw new ResourceNotFoundException("Report Id '" + id + "' not found");
+        reportRepository.delete(report.get());
+        return report.get();
+    }
+
+    public Report update(Report reportRequest) {
+        return reportRepository.save(reportRequest);
+    }
 }
