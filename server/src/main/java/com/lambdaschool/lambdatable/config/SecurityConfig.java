@@ -66,6 +66,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/h2-console/**").permitAll();
         http.csrf().disable();
         http.headers().frameOptions().disable();
+
+        http.authorizeRequests().antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**")
+                .permitAll()
+                .anyRequest().authenticated();
         // ==================================================
 
         http
@@ -79,6 +83,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and()
+
+
                 .authorizeRequests()
                     .antMatchers("/",
                         "/favicon.ico",

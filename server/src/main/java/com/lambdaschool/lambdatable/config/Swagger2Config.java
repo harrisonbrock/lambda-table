@@ -2,6 +2,7 @@ package com.lambdaschool.lambdatable.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,7 +23,7 @@ public class Swagger2Config
     {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.lambdaschool.lambda-table"))
+                        .basePackage("com.lambdaschool.lambdatable"))
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }
@@ -31,9 +32,7 @@ public class Swagger2Config
     {
         return new ApiInfoBuilder().title("Cloud Chart")
                 .description("Cloud Chart is our version of Airtable which is a spreadsheet-database hybrid, with the features of a database but applied to a spreadsheet.")
-                .contact(new Contact("Cruise Brantley", "http://www.lambdaschool.com", "cruise@lambdaschool.com"))
-                .contact(new Contact("Harrison Brock", "http://www.lambdaschool.com", "harrison@lambdaschool.com"))
-                .contact(new Contact("Kaitlyn Flynn", "http://www.lambdaschool.com", "kaitlyn@lambdaschool.com"))
+                .contact(new Contact("Cruise Brantley, Harrison Brock, Kaitlyn Flynn", "http://www.lambdaschool.com", "john@lambdaschool.com"))
                 .license("MIT")
                 .licenseUrl("https://github.com/LambdaSchool/java-crudysnacks/blob/master/LICENSE")
                 .version("1.0.0")
