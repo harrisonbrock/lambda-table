@@ -32,6 +32,9 @@ class Admin extends Component {
 							<ReportCard key={index} report={report} />
 						</Link>
 					))}
+					<Link className="submit-btn" to="/eow">
+						Create Weekly Report
+					</Link>
 				</div>
 			</div>
 		);
