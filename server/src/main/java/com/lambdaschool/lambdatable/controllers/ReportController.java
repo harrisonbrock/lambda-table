@@ -32,6 +32,7 @@ public class ReportController {
     }
 
     @PostMapping()
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<?> createNewReport(
             @CurrentUser UserPrincipal currentUser,
             @Valid @RequestBody Report report,
