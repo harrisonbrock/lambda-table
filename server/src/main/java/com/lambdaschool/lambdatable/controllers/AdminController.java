@@ -1,5 +1,6 @@
 package com.lambdaschool.lambdatable.controllers;
 
+import com.lambdaschool.lambdatable.model.User;
 import com.lambdaschool.lambdatable.security.CurrentUser;
 import com.lambdaschool.lambdatable.security.UserPrincipal;
 import com.lambdaschool.lambdatable.services.MapValidationErrorService;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -28,6 +31,12 @@ public class AdminController {
         this.userService = userService;
         this.reportService = reportService;
         this.errorService = errorService;
+    }
+
+    @GetMapping("/users")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> getAllUser() {
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/reports")
