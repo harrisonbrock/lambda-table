@@ -9,7 +9,7 @@ class ReportCard extends Component {
 			<div className="cardContainer">
 				<div className="card-class">
 					<button className="delete-form" onClick={this.deleteForm}>
-						X
+						Delete
 					</button>
 					<p>End of Week Form</p>
 					{this.props.report.createdAt !== null ? (

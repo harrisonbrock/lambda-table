@@ -32,14 +32,17 @@
 	position: relative;
 	left: 80px;
 	bottom: 8px;
-	border: 1px solid black;
-	color: red;
+	margin-right: 40px;
+	/* border: 1px solid black;
+	color: grey; */
 	padding: 0;
 	height: 17px;
-	width: 15px;
-	background: white;
+	width: 45px;
+	font-size: 12px;
+	/* background: #096ddf6c; */
 	cursor: pointer;
 }
+
 /*-------------------
   Text inside Cards
 -------------------*/
