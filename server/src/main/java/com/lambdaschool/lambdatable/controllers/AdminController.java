@@ -46,8 +46,4 @@ public class AdminController {
         return new ResponseEntity<>(reportService.getAllReports(), HttpStatus.OK);
     }
 
-    @GetMapping("/reports/users/githubname/{gitHubName}")
-    public ResponseEntity<?> getReportByGitHubName(@PathVariable String gitHubName) {
-        return null;
-    }
 }

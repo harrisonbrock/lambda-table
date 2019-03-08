@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(name = "/api/pm")
+@RequestMapping("/api/pm")
 public class ProjectManagerController {
 
     private final ProjectManagerRepository projectManagerRepository;
