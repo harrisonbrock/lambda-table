@@ -3,9 +3,13 @@ import "./report-card.css";
 
 const ReportCard = props => {
 	return (
-		<div className="card-class">
-			<h3>{props.report.createdAt}</h3>
-			<span>{props.report.user.name}</span>
+		<div className="cardContainer">
+			<div className="card-class">
+				<p className="title"></p>
+				<p className="createdAt">Created At:</p>
+				<h3 className="timestamp"> {props.report.createdAt}</h3>
+				<span className="name">By: {props.report.user.name}</span>
+			</div>
 		</div>
 	);
 };

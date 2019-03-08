@@ -26,6 +26,7 @@ class User extends Component {
 					<header className="table-header">
 						<div className="logo" />
 					</header>
+					<div className="myReportCard">My Report Cards</div>	
 					{this.state.reports.map((report, index) => (
 						<ReportCard
 							onClick={this.handleCardClick}
