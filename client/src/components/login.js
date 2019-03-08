@@ -146,7 +146,6 @@ class Login extends React.Component {
 				email: this.state.email
 			})
 				.then(response => {
-					console.log("Log in again.");
 					Axios.post("http://localhost:8080/api/auth/signin", {
 						userNameOrEmail: this.state.username,
 						password: this.state.password
