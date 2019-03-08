@@ -1,5 +1,4 @@
 import React from "react";
-// import axios from "axios";
 import "./login.css";
 import Axios from "axios";
 
@@ -118,7 +117,6 @@ class Login extends React.Component {
 					console.log("login worked");
 					if (response.data.accessToken) {
 						localStorage.setItem("token", response.data.accessToken);
-						// this.props.history.push("/eow");
 						Axios.get("http://localhost:8080/api/admin/reports", {
 							headers: {
 								Authorization: "Bearer " + localStorage.getItem("token")
@@ -148,15 +146,38 @@ class Login extends React.Component {
 				email: this.state.email
 			})
 				.then(response => {
-					if (response.data.accessToken) {
-						localStorage.setItem("token", response.data.accessToken);
-						this.props.history.push("/user");
-					}
+					console.log("Log in again.");
+					Axios.post("http://localhost:8080/api/auth/signin", {
+						userNameOrEmail: this.state.username,
+						password: this.state.password
+					})
+						.then(response => {
+							console.log("login worked");
+							if (response.data.accessToken) {
+								localStorage.setItem("token", response.data.accessToken);
+								Axios.get("http://localhost:8080/api/admin/reports", {
+									headers: {
+										Authorization: "Bearer " + localStorage.getItem("token")
+									}
+								})
+									.then(res => {
+										this.props.history.push("/admin");
+										console.log(res);
+									})
+									.catch(err => {
+										this.props.history.push("/user");
+										console.log(err);
+									});
+							}
+						})
+						.catch(err => {
+							console.log(err);
+						});
 				})
 				.catch(err => {
 					console.log(err);
-					localStorage.removeItem("token");
-					this.setState({ invalidCredentials: true, password: "" });
+					// localStorage.removeItem("token");
+					// this.setState({ invalidCredentials: true, password: "" });
 				});
 		}
 	};
