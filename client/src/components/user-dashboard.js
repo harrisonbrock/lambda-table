@@ -27,16 +27,20 @@ class User extends Component {
 					<header className="table-header">
 						<div className="logo" />
 					</header>
-					<div className="myReportCard">My Report Cards</div>	
+					<div className="myReportCard">My Report Cards</div>
 					{this.state.reports.map((report, index) => (
 						<Link key={index} to={{ pathname: "/eow", state: { report } }}>
-							<ReportCard key={index} report={report} />
+							<ReportCard
+								key={index}
+								report={report}
+								callback={() => this.componentDidMount()}
+							/>
 						</Link>
 					))}
-					<Link className="submit-btn" to="/eow">
-						Create Weekly Report
-					</Link>
 				</div>
+				<Link className="submit-btn user-submit-btn" to="/eow">
+					Create Weekly Report
+				</Link>
 			</div>
 		);
 	}
