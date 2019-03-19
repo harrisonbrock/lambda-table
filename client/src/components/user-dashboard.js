@@ -10,7 +10,7 @@ class User extends Component {
 
 	componentDidMount() {
 		if (!localStorage.getItem("token")) this.props.history.push("/login");
-		Axios.get("http://localhost:8080/api/reports", {
+		Axios.get("https://cloud-chart.herokuapp.com/api/reports", {
 			headers: { Authorization: "Bearer " + localStorage.getItem("token") }
 		})
 			.then(response => {

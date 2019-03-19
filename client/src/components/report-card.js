@@ -41,7 +41,8 @@ class ReportCard extends Component {
 		e.preventDefault();
 
 		Axios.delete(
-			"http://localhost:8080/api/reports/id/" + this.props.report.id,
+			"https://cloud-chart.herokuapp.com/api/reports/id/" +
+				this.props.report.id,
 			{
 				headers: { Authorization: "Bearer " + localStorage.getItem("token") }
 			}

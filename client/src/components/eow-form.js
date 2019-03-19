@@ -124,7 +124,7 @@ class Eow extends Component {
 			console.log("Attempting to update report for some reason?");
 			//Update path
 			Axios.put(
-				"http://localhost:8080/api/reports/id/" +
+				"https://cloud-chart.herokuapp.com/api/reports/id/" +
 					this.props.location.state.report.id,
 				data,
 				{
@@ -143,7 +143,7 @@ class Eow extends Component {
 		} else {
 			console.log("Creating new report");
 			//Create path
-			Axios.post("http://localhost:8080/api/reports", data, {
+			Axios.post("https://cloud-chart.herokuapp.com/api/reports", data, {
 				headers: { Authorization: "Bearer " + localStorage.getItem("token") }
 			})
 				.then(response => {

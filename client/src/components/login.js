@@ -18,7 +18,7 @@ class Login extends React.Component {
 			<div className="wrapper">
 				<div className="logo" />
 				<h1 className="login">Log In</h1>
-				<p className="noAcct">Don't have an acct?</p>
+				<p className="noAcct">Don't have an account?</p>
 				<input
 					name="register"
 					type="checkbox"
@@ -109,7 +109,7 @@ class Login extends React.Component {
 		event.preventDefault();
 
 		if (!this.state.register) {
-			Axios.post("http://localhost:8080/api/auth/signin", {
+			Axios.post("https://cloud-chart.herokuapp.com/api/auth/signin", {
 				userNameOrEmail: this.state.username,
 				password: this.state.password
 			})
@@ -117,7 +117,7 @@ class Login extends React.Component {
 					console.log("login worked");
 					if (response.data.accessToken) {
 						localStorage.setItem("token", response.data.accessToken);
-						Axios.get("http://localhost:8080/api/admin/reports", {
+						Axios.get("https://cloud-chart.herokuapp.com/api/admin/reports", {
 							headers: {
 								Authorization: "Bearer " + localStorage.getItem("token")
 							}
@@ -138,7 +138,7 @@ class Login extends React.Component {
 					this.setState({ invalidCredentials: true, password: "" });
 				});
 		} else {
-			Axios.post("http://localhost:8080/api/auth/signup", {
+			Axios.post("https://cloud-chart.herokuapp.com/api/auth/signup", {
 				userName: this.state.username,
 				password: this.state.password,
 				name: this.state.name,
@@ -146,7 +146,7 @@ class Login extends React.Component {
 				email: this.state.email
 			})
 				.then(response => {
-					Axios.post("http://localhost:8080/api/auth/signin", {
+					Axios.post("https://cloud-chart.herokuapp.com/api/auth/signin", {
 						userNameOrEmail: this.state.username,
 						password: this.state.password
 					})
@@ -154,11 +154,14 @@ class Login extends React.Component {
 							console.log("login worked");
 							if (response.data.accessToken) {
 								localStorage.setItem("token", response.data.accessToken);
-								Axios.get("http://localhost:8080/api/admin/reports", {
-									headers: {
-										Authorization: "Bearer " + localStorage.getItem("token")
+								Axios.get(
+									"https://cloud-chart.herokuapp.com/api/admin/reports",
+									{
+										headers: {
+											Authorization: "Bearer " + localStorage.getItem("token")
+										}
 									}
-								})
+								)
 									.then(res => {
 										this.props.history.push("/admin");
 										console.log(res);
